@@ -5,20 +5,25 @@ class User < ApplicationRecord
             :secret,
             presence: true
 
-  class << self
-    def find_or_create_from_auth_hash(hash)
-      User.find_by(uid: hash["uid"]) || User.create_from_auth_hash(hash)
-    end
+  def trello_client
+    @trello_client ||= Trello::Client.new(
+      consumer_key: ENV["TRELLO_KEY"],
+      consumer_secret: ENV["TRELLO_SECRET"],
+      oauth_token: token,
+      oauth_token_secret: nil
+    )
+  end
 
-    private
+  def self.find_or_create_from_auth_hash(hash)
+    User.find_by(uid: hash["uid"]) || User._create_from_auth_hash(hash)
+  end
 
-    def create_from_auth_hash(hash)
-      User.create!(
-        uid: hash["uid"],
-        name: hash["info"]["name"],
-        token: hash["credentials"]["token"],
-        secret: hash["credentials"]["secret"]
-      )
-    end
+  def self._create_from_auth_hash(hash)
+    User.create!(
+      uid: hash["uid"],
+      name: hash["info"]["name"],
+      token: hash["credentials"]["token"],
+      secret: hash["credentials"]["secret"]
+    )
   end
 end

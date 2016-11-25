@@ -14,6 +14,7 @@ gem "slim"
 gem "omniauth"
 gem "omniauth-trello"
 gem "ruby-trello"
+gem "redcarpet"
 
 group :development, :test do
   gem "byebug", platform: :mri
