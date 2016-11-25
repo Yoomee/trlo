@@ -1,0 +1,5 @@
+inherit_from:
+  - https://raw.githubusercontent.com/Yoomee/rubocop/master/.rubocop.yml
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
