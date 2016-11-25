@@ -1,0 +1,8 @@
+article.pa3.pa5-ns
+  h1.f4.bold.center.mw6 Contents
+  ul.list.pl0.ml0.center.mw6.ba.b--light-silver.br2
+    -@board.lists.each do |list|
+      li.ph3.pv3.bb.b--light-silver
+        / =link_to list.name, page_path(list.name.parameterize)
+        =link_to list.name, "#"
+        
