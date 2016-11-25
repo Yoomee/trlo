@@ -16,6 +16,7 @@ group :development, :test do
   gem "byebug", platform: :mri
   gem "rspec-rails", "~> 3.5"
   gem "rails-controller-testing"
+  gem "dotenv-rails"
 end
 
 group :development do
