@@ -11,5 +11,20 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+ *= require tachyons
  *= require_self
  */
+
+ pre, code {
+  font-family: Consolas, monaco, monospace;
+  border-radius: 2px;
+  border: 1px solid #D6DADC;
+  margin: 8px 0;
+  padding: 8px 10px;
+  word-wrap: normal;
+  background: #E2E4E6;
+  display: block;
+  white-space: pre;
+  text-align: left;
+  overflow: scroll;
+}

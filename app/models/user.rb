@@ -5,6 +5,8 @@ class User < ApplicationRecord
             :secret,
             presence: true
 
+  has_many :sites
+
   def trello_client
     @trello_client ||= Trello::Client.new(
       consumer_key: ENV["TRELLO_KEY"],

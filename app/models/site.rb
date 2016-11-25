@@ -1,6 +1,7 @@
 class Site < ApplicationRecord
   URL_REGEX = %r(https:\/\/trello.com\/b\/(\S+)\/(\S+))
   validates :board_url, :board_id, :name, presence: true, uniqueness: true
+  belongs_to :user
 
   before_validation :parse_url
 
