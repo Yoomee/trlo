@@ -15,6 +15,7 @@ gem "omniauth"
 gem "omniauth-trello"
 gem "ruby-trello"
 gem "redcarpet"
+gem "autoprefixer-rails"
 
 group :development, :test do
   gem "byebug", platform: :mri
