@@ -1,0 +1,18 @@
+* {
+  box-sizing: border-box;
+  -webkit-font-smoothing: antialiased;
+  &:before, &:after {
+    box-sizing: border-box;
+  }
+}
+
+html, body {
+  height: 100%;
+}
+body {
+  background-color: #5C9CF7;
+  font-family: 'soleil', sans-serif;
+  font-weight: 300;
+  color: #444444;
+  font-size: 20px;
+}
