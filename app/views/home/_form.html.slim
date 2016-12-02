@@ -1,11 +1,9 @@
 h1.heading--large.text--white.full-screen__heading Choose a board
 .card.active
-  ul
-    -current_user.sites.each do |site|
-      li= site.name
-  .card__icon=image_tag("trello-icon.svg")
+  =image_tag "loading.gif", class: "dn js-loader"
   =form_for Site.new do |f|
+    .card__icon=image_tag("trello-icon.svg")
     =f.label :board_url, "I've already set a board up"
     .input-group
       =f.text_field :board_url, placeholder: "Board URL"
-      =f.submit class: "button button--green", value: "Next"
+      =f.submit class: "button button--green js-site-submit", value: "Next"

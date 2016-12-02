@@ -14,3 +14,11 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
+
+
+$(document).ready(function(){
+  $(".js-site-submit").on("click", function() {
+    $("#new_site").hide();
+    $(".js-loader").show();
+  });
+});
