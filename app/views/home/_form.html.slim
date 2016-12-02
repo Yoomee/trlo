@@ -1,5 +1,8 @@
 h1.heading--large.text--white.full-screen__heading Choose a board
 .card.active
+  ul
+    -current_user.sites.each do |site|
+      li= site.name
   .card__icon=image_tag("trello-icon.svg")
   =form_for Site.new do |f|
     =f.label :board_url, "I've already set a board up"

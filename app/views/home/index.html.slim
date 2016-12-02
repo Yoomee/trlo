@@ -1,7 +1,8 @@
-h1 Trlo
--if current_user
-  'You're signed in!
-  =link_to "Sign Out", signout_path
-  =render "form"
--else
-  =link_to "Sign in with Trello", trello_auth_path
+.site-container
+  h1 Trlo
+  -if current_user
+    'You're signed in!
+    =link_to "Sign Out", signout_path
+    =render "form"
+  -else
+    =link_to "Sign in with Trello", trello_auth_path

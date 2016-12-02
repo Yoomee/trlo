@@ -4,13 +4,12 @@ article.baskerville.pb5
     .ph3.ph4-m.ph5-l
       p.f4.mb4.center.measure.lh-copy
         -@list.cards.each do |card|
-          article.center.mw5.mw6-ns.br3.hidden.ba.b--black-10.mv4
-            h1.f4.bg-near-white.br3.br--top.black-60.mv0.pv2.ph3=card.name
+          article.pa3.pa5-ns
+            h1.f2.pb3=card.name
+            -if card.attachments.any?
+              ul.list
+                -card.attachments.each do |attach|
+                  =image_tag card.attachments.first.previews[4]["url"], class: "w-100.f5.measure"
             -if card.desc.present?
-              .pa3.bt.b--black-10
-                p.f6.f5-ns.lh-copy.measure
-                  ==@md_renderer.render card.desc
-            / -if card.attachments.any?
-            /   ul.list.pl0.ml0.center.mw6.ba.b--light-silver.br2
-            /     -card.attachments.each do |attach|
-            /       =link_to attach.name, attach.url
+              p.measure.lh-copy
+                ==@md_renderer.render card.desc

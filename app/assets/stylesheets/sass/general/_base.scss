@@ -9,14 +9,18 @@
 html, body {
   height: 100%;
 }
+
 body {
-  background-color: #5C9CF7;
   font-family: 'soleil', sans-serif;
   font-weight: 300;
   color: #444444;
   font-size: 20px;
 }
 
+.site-container {
+    background-color: #5C9CF7;
+    height: 100%;
+}
 
 pre, code {
  font-family: Consolas, monaco, monospace;

@@ -12,20 +12,20 @@ class SitesController < ApplicationController
     )
     rescue
     end
-    redirect_to site_path(@site)
+    redirect_to subdomain: @site.name, controller: "home", action: "index"
   end
 
   def show
-    @site = Site.find_by_name(params[:id])
+    @site = Site.find_by_name(request.subdomain(0))
     Site::URL_REGEX =~ @site.board_url
     find_board($1)
     render :show
   end
 
   def page
-    site = Site.find_by_name(params[:id])
-    find_board(site.board_id)
-    @html = Rails.cache.fetch("#{site.board_id}/#{params[:list]}") do
+    @site = Site.find_by_name(request.subdomain(0))
+    find_board(@site.board_id)
+    @html = Rails.cache.fetch("#{@site.board_id}/#{params[:list]}") do
       @list = @board.lists.detect { |x| x.name.parameterize == params[:list] }
       raise ActionController::RoutingError.new("Not Found") unless @list
       @md_renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new)
@@ -41,6 +41,6 @@ class SitesController < ApplicationController
   end
 
   def find_board(board_id)
-    @board = current_user.trello_client.find(:boards, board_id)
+    @board = @site.user.trello_client.find(:boards, board_id)
   end
 end
