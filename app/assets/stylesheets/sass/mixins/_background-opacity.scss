@@ -1,0 +1,18 @@
+/**
+ * Background opacity mixin
+ *
+ * Converts a HEX colour and opacity value into RGBA colour.  Uses solid colour as fallback.
+ *
+ * Usage:
+ * @include background-opacity(#ff0000, 0.5);
+ *
+ * Results in:
+ * background: #ff0000;
+ * background: rgba(255, 0, 0, 0.5);
+ *
+ */
+
+@mixin background-opacity($color, $opacity: 0.5) {
+  background: $color;
+  background: rgba($color, $opacity);
+}

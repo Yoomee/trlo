@@ -1,8 +1,29 @@
-h1.heading--large.text--white.full-screen__heading Choose a board
-.card.active
-  .card__icon=image_tag("trello-icon.svg")
-  =form_for Site.new do |f|
-    =f.label :board_url, "I've already set a board up"
-    .input-group
-      =f.text_field :board_url, placeholder: "Board URL"
-      =f.submit class: "button button--green", value: "Next"
+.container
+  .row
+    .col-xs-12
+      h1.heading--large.text--white.full-screen__heading Choose a board
+  .row
+    .col-sm-10.col-sm-offset-1
+      .card-container
+        .card-holder.jsBoardSelect
+          button.card
+            .card__icon=image_tag("trello-icon.svg")
+            =form_for Site.new do |f|
+              =f.label :board_url, "I've already set a board up", class: "card__label"
+              / .input-group
+                =f.text_field :board_url, placeholder: "Board URL"
+                =f.submit class: "button button--green", value: "Next"
+        .card-holder.jsBoardSelect
+          button.card
+            .card__icon=image_tag("trello-icon-empty.svg")
+            =form_for Site.new do |f|
+              =f.label :board_url, "I want to create a new board", class: "card__label"
+              / .input-group
+                =f.text_field :board_url, placeholder: "Board URL"
+                =f.submit class: "button button--green", value: "Next"
+
+javascript:
+  $('.jsBoardSelect').on('click', function(){
+    $(this).addClass('active');
+    $(this).siblings().addClass('inactive');
+  });

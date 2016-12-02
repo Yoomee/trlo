@@ -1,15 +1,54 @@
 $card-border-radius: 30px;
 
+.card-container {
+  text-align: center;
+  position: relative;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+}
+.card-holder {
+  position: absolute;
+  width: 50%;
+  padding: 0 20px 20px;
+  margin: 0;
+  top: 0;
+  transition: opacity 0.3s ease, top 0.3s ease, left 0.8s ease, right 0.8s ease, margin 0.8s ease, width 0.8s ease;
+  &:nth-of-type(1) {
+    left: 0;
+  }
+  &:nth-of-type(2) {
+    right: 0;
+  }
+  &.inactive {
+    width: 0%;
+    opacity: 0;
+    top: 400px;
+  }
+  &.active {
+    width: 70%;
+    &:nth-of-type(1) {
+      left: 50%;
+      margin: 0 0 0 -35%;
+    }
+    &:nth-of-type(2) {
+      right: 50%;
+      margin: 0 -35% 0 0;
+    }
+  }
+}
 .card {
   background-color: #FFFFFF;
   border-radius: $card-border-radius;
   box-shadow: 0 0 20px 0 rgba(0,0,0,0.20);
+  border: 0;
   padding: 60px;
   text-align: center;
-  &.active {
-    box-shadow: 0 0 40px 0 rgba(0,0,0,0.40);
-    width: 620px;
-    margin: 0 auto;
+  transition: all 0.8s ease;
+  width: 100%;
+  &:hover, &:focus, &.active {
+    box-shadow: 0 0 60px 0 rgba(0,0,0,0.60);
+    outline: 0;
   }
 }
 .card__icon {
@@ -17,4 +56,8 @@ $card-border-radius: 30px;
   width: 80px;
   height: 80px;
   margin-bottom: 20px;
+}
+.card__label {
+  font-size: 20px;
+  font-weight: 300;
 }
