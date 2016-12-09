@@ -1,0 +1,14 @@
+.site-header__nav {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  text-align: right;
+}
+.site-header__nav-item {
+  display: inline-block;
+  a {
+    display: block;
+    background: #FFFFFF;
+    color: #5C9CF7;
+  }
+}

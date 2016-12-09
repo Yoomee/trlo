@@ -1,8 +1,9 @@
-.site-container.tc
-  h1.f3.measure.f-subheadline-l.logo Trlo
-  -if current_user
-    'You're signed in!
-    =link_to "Sign Out", signout_path
-    =render "form"
-  -else
-    =link_to "Sign in with Trello", trello_auth_path
+.center-content__container
+  .center-content__content
+    -if current_user
+      =render "form"
+    -else
+      h1.heading--large.text--white.full-screen__heading Sign in with Trello
+      .card
+        p.mb4 You will be asked to authorise permisions
+        =link_to "Sign in", trello_auth_path, class: "button button--trello"
