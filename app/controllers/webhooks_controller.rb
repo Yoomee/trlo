@@ -10,11 +10,7 @@ class WebhooksController < ApplicationController
     webhook_data = params["webhook"]["action"]["data"]
     Rails.cache.delete("#{webhook_data['board']['shortLink']}/#{webhook_data['list']['name'].parameterize}")
     @site = Site.find_by_name(webhook_data["board"]["name"].parameterize)
-    find_board(@site.board_id)
-    @list = @board.lists.detect { |x| x.name == webhook_data["list"]["name"] }
-    raise ActionController::RoutingError.new("Not Found") unless @list
-    @md_renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new)
-    Rails.cache.write("#{webhook_data['board']['shortLink']}/#{webhook_data['list']['name'].parameterize}", render_to_string("sites/page"))
+    PageBuilder.new(@site, params[:list]).build
   end
 
   private
