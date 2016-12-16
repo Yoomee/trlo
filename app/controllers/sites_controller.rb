@@ -34,7 +34,7 @@ class SitesController < ApplicationController
   end
 
   def find_site
-    @site = Site.find_by_name(request.subdomain(0))
+    @site = Site.find_by_name(request.subdomains(0))
   end
 
   def find_board(board_id)
