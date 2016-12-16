@@ -6,10 +6,10 @@ Rails.application.routes.draw do
 
   get "/" => "sites#show",
       as: "site",
-      constraints: ->(request) { Site.exists?(name: request.subdomain(0)) }
+      constraints: ->(request) { Site.exists?(name: request.subdomains(0)) }
   get "/*list" => "sites#page",
       as: "site_page",
-      constraints: ->(request) { Site.exists?(name: request.subdomain(0)) }
+      constraints: ->(request) { Site.exists?(name: request.subdomains(0)) }
 
   resources :sites, only: [:create]
 
