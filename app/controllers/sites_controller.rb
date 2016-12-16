@@ -12,7 +12,7 @@ class SitesController < ApplicationController
       )
     rescue
     end
-    redirect_to subdomain: @site.name, controller: "home", action: "index"
+    redirect_to subdomain: [@site.name, Rails.application.config.subdomain].compact.join("."), controller: "home", action: "index"
   end
 
   def show
