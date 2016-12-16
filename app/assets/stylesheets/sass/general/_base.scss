@@ -1,3 +1,5 @@
+$header-height: 60px;
+
 * {
   box-sizing: border-box;
   -webkit-font-smoothing: antialiased;
@@ -5,23 +7,31 @@
     box-sizing: border-box;
   }
 }
-
 html, body {
   height: 100%;
 }
-
 body {
   font-family: 'soleil', sans-serif;
   font-weight: 300;
   color: #444444;
   font-size: 20px;
+  background-color: #5C9CF7;
+  background-image: image_url("trlo-bg.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  &.auth-screen {
+    background-image: image_url("splash-bg.jpg");
+  }
 }
-
-.site-container {
-    background-color: #5C9CF7;
-    height: 100%;
+.center-content__container {
+  display: flex;
+  height: calc(100vh - #{$header-height});
+  align-items: center;
+  justify-content: center;
 }
-
+.center-content__content {
+  margin-bottom: $header-height;
+}
 pre, code {
  font-family: Consolas, monaco, monospace;
  border-radius: 2px;
@@ -34,8 +44,4 @@ pre, code {
  white-space: pre;
  text-align: left;
  overflow: scroll;
-}
-
-.logo {
-  color: #fff;
 }

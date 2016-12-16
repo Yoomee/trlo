@@ -3,12 +3,25 @@
   font-weight: 600;
   text-align: center;
   border: 0;
-  font-size: 20px;
+  font-size: 18px;
+  text-decoration: none;
+  border-radius: 30px;
+  vertical-align: middle;
+  padding: 19px 40px 21px;
 }
 .button--green {
   background: #12CE66;
   color: #FFFFFF;
   height: 60px;
-  border-radius: 30px;
   padding: 0 40px;
+}
+.button--trello {
+  position: relative;
+  background: #0079BF;
+  color: #FFFFFF;
+  min-width: 250px;
+}
+.button--small {
+  font-size: 14px;
+  padding: 11px 20px 13px;
 }
