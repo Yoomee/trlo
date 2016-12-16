@@ -12,6 +12,16 @@ class SitesController < ApplicationController
       )
     rescue
     end
+    redirect_to theme_site_path(@site), subdomain: [@site.name, Rails.application.config.subdomain].compact.join(".")
+  end
+
+  def theme
+    @site = Site.find_by_name(params[:id])
+  end
+
+  def set_theme
+    @site = Site.find_by_name(params[:id])
+    @site.update_attributes(theme: params[:site][:theme])
     redirect_to subdomain: [@site.name, Rails.application.config.subdomain].compact.join("."), controller: "home", action: "index"
   end
 
@@ -19,7 +29,7 @@ class SitesController < ApplicationController
     find_site
     Site::URL_REGEX =~ @site.board_url
     find_board($1)
-    render :show
+    render :show, layout: "site"
   end
 
   def page

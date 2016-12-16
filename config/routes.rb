@@ -11,7 +11,12 @@ Rails.application.routes.draw do
       as: "site_page",
       constraints: ->(request) { Site.exists?(name: request.subdomains(0)) }
 
-  resources :sites, only: [:create]
+  resources :sites, only: [:create] do
+    member do
+      get "theme"
+      patch "set_theme"
+    end
+  end
 
   match "/webhooks/new", to: "webhooks#verify", via: :head
   post "/webhooks/new", to: "webhooks#new"

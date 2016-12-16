@@ -10,7 +10,7 @@ class PageBuilder
       list = board.lists.detect { |x| x.name.parameterize == @list_name }
       raise ActionController::RoutingError.new("Not Found") unless list
       md_renderer = Redcarpet::Markdown.new(Redcarpet::Render::HTML.new)
-      SitesController.render :page, assigns: { list: list, md_renderer: md_renderer }
+      SitesController.render :page, layout: "site", assigns: { list: list, md_renderer: md_renderer, site: @site }
     end
   end
 end

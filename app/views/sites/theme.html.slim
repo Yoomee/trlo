@@ -1,0 +1,11 @@
+.center-content__container
+  .center-content__content
+    -if current_user
+      h1.heading--large.text--white.full-screen__heading Choose a theme
+      .card.active
+        =image_tag "loading.gif", class: "dn js-loader"
+        =form_for @site, url: set_theme_site_path do |f|
+          =f.collection_radio_buttons(:theme, Site::THEMES, :id, :name) do |b|
+            =b.label 
+              =b.radio_button + b.object.name
+          =f.submit class: "button button--green js-site-submit", value: "Next"
