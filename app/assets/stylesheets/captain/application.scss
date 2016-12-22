@@ -3,11 +3,19 @@
  *= require_self
  */
 
-body {
-  background-color: #001F3F;
-  color: #fff;
-}
+@import "../sass/scaffold/*";
+@import "../sass/general/*";
+@import "../sass/forms/*";
+@import "../sass/cards/*";
+@import "../sass/nav/*";
+@import "../sass/pages/*";
 
-li a {
-  color: #fff;
+$forestry-primary: #001F3F;
+
+body {
+ background-image: none;
+ background-color: $forestry-primary;
+}
+a {
+ color: $forestry-primary;
 }

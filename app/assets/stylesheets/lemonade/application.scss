@@ -2,6 +2,20 @@
  *= require tachyons
  *= require_self
  */
+
+@import "../sass/scaffold/*";
+@import "../sass/general/*";
+@import "../sass/forms/*";
+@import "../sass/cards/*";
+@import "../sass/nav/*";
+@import "../sass/pages/*";
+
+$forestry-primary: #FFDC00;
+
 body {
-  background-color: #FFDC00;
+ background-image: none;
+ background-color: $forestry-primary;
+}
+a {
+ color: $forestry-primary;
 }
