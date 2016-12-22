@@ -6,15 +6,50 @@ $card-border-radius: 30px;
   box-shadow: 0 0 20px 0 rgba(0,0,0,0.20);
   padding: 60px;
   text-align: center;
+  border: 0;
+  width: 100%;
+  transition: all 0.5s ease;
   &.active {
     box-shadow: 0 0 40px 0 rgba(0,0,0,0.40);
     width: 620px;
     margin: 0 auto;
   }
+  &:focus, &:hover {
+    box-shadow: 0 0 40px 0 rgba(0,0,0,0.40);
+    outline: none;
+  }
+}
+.card--small {
+  padding: 25px 40px;
 }
 .card__icon {
   display: inline-block;
   width: 80px;
   height: 80px;
   margin-bottom: 20px;
+}
+.card-list__item {
+  margin-bottom: 20px;
+  text-align: left;
+  padding: 0;
+}
+.card-list__meta {
+  color: #A7A7A7;
+  margin-left: 10px;
+}
+.card-list__toggle {
+  background: transparent;
+  border: 0;
+  width: 100%;
+  text-align: left;
+  vertical-align: middle;
+  padding: 25px 40px 22px;
+  border-bottom: 1px solid #DADADA;
+  margin-bottom: 25px;
+  &:focus, &:hover {
+    outline: none;
+  }
+}
+.card-list__content {
+  padding: 0 40px 25px;
 }

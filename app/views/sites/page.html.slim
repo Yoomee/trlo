@@ -1,15 +1,12 @@
-article.baskerville.pb5
-  header.avenir.tc-l.ph3.ph4-ns.pt4.pt5-ns
-    h1.f3.f2-m.f-subheadline-l.measure.lh-title.fw1.mt0.pt3=@list.name.humanize
-    .ph3.ph4-m.ph5-l
-      p.f4.mb4.center.measure.lh-copy
-        -@list.cards.each do |card|
-          article.pa3.pa5-ns
-            h1.f2.pb3=card.name
-            -if card.attachments.any?
-              ul.list
-                -card.attachments.each do |attach|
-                  =image_tag card.attachments.first.previews[4]["url"], class: "w-100.f5.measure"
-            -if card.desc.present?
-              p.measure.lh-copy
-                ==@md_renderer.render card.desc
+.page-wrapper
+  h1.heading--large.text--white.page-heading=@list.name.humanize
+  .card
+    -@list.cards.each do |card|
+      =card.name
+      -if card.attachments.any?
+        ul
+          -card.attachments.each do |attach|
+            li=image_tag card.attachments.first.previews[4]["url"], class: "w-100.f5.measure"
+      -if card.desc.present?
+        p
+          ==@md_renderer.render card.desc

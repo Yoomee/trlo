@@ -1,6 +1,6 @@
 h1, h2, h3, h4 ,h5 {
   font-style: normal;
-  font-weight: 300;
+  font-weight: 100;
 }
 .heading--large {
   font-size: 36px;
@@ -14,4 +14,8 @@ h1, h2, h3, h4 ,h5 {
 .full-screen__heading {
   margin: 0 0 60px;
   text-align: center;
+}
+.page-heading {
+  @extend .full-screen__heading;
+  margin-top: 80px;
 }

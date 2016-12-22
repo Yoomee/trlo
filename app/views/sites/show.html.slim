@@ -1,7 +1,16 @@
-article.pa3.pa5-ns
-  h1.f4.bold.center.mw6 Contents
-  ul.list.pl0.ml0.center.mw6.ba.b--light-silver.br2
+.page-wrapper
+  h1.heading--large.text--white.page-heading=@board.name
+  ul.card-list
     -@board.lists.each do |list|
-      li.ph3.pv3.bb.b--light-silver
-        =link_to list.name, site_page_path(list.name.parameterize)
+      li.card.card--small.card-list__item
+        button.card-list__toggle
+          span.card-list__title=list.name
+          span.card-list__meta="#{list.cards.count} items"
+        .card-list__content
+          ul
+            / these should be cards in this list
+            li.mb3=link_to "Lorem ipsum dolor sit amet, consectetur adipisicing elit.", "#"
+            li.mb3=link_to "Lorem ipsum dolor sit amet, consectetur adipisicing elit.", "#"
+            li.mb3=link_to "Lorem ipsum dolor sit amet, consectetur adipisicing elit.", "#"
         
+/ =link_to list.name, site_page_path(list.name.parameterize)
